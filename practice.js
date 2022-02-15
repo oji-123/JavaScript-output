@@ -41,11 +41,70 @@ const practice = () => {
   let num1 = 1, num2 = 2;
   console.log(num1);
   console.log(num2);
-  // const NUM1;　これはエラーに。
+  // const NUM1; これはエラーに。
 
   // constの定数名は大文字にするのが一般的
   const NUM3 = 3;
   console.log(NUM3);
+
+  // 
+
+  // 分割代入
+  let [x1, x2] = [2, 3];
+  console.log([x1, x2]);
+  console.log(x1);
+  [x1, x2] = [x1 + 1, x2 + 1];
+  console.log([x1, x2]);
+  [x1, x2] = [x2, x1];
+  console.log([x1, x2]);
+
+  // 分割代入を使ったfor文
+  let o = {y1: 2, y2: 3}
+  for (const [name, value] of Object.entries(o)) {
+    console.log(name, value);
+  }
+
+  // 分割代入は左辺、右辺の変数の数が会う必要はない。
+  let [z1, z2] = [1];
+  console.log([z1, z2]);
+  [z1, z2] = [1,2,3,4];
+  console.log([z1, z2]);
+  [,z1,,z2] = [1,2,3,4];
+  console.log([z1, z2]);
+
+  // また、余った文の数を一つの変数にまとめて代入も可能。 ...(変数名）で記述した変数名に入る。
+  [z1, ...z2] = [1,2,3,4];
+  console.log([z1, z2]);
+  console.log(z2);
+
+  // 分割代入のメリットは必ず配列で準備しなくても良いという点。ループ文で回して代入なども行うことが可能。
+  let [first, ...rest] = "Hello";
+  console.log(first);
+  console.log(rest);
+
+  // プロパティのアクセス式
+  let t = {x: 1,y:{z: 2}};
+  console.log(t.x);
+  console.log(t["x"]);
+
+  // アクセス式の「.」の前に?をつけることでエラーを回避ができる。
+  // ?.の後は?.の左側にある式がnullやundefinedの場合は即座に式全体がundefinedに変わる。
+  let g = {a: null}
+  console.log(g.a?.b);
+
+  // 条件付き呼び出し式の使い方。
+  // 使わない、従来のやり方。
+  function square1 (x, log) {
+    if (log) {
+      log(x);
+    }
+    return x * x;
+  }
+  // 条件付き呼び出し式を使う。
+  function square2 (x, log){
+    log?.(x);
+    return x * x;
+  }
 
   
 
