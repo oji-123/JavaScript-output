@@ -47,7 +47,7 @@ const practice = () => {
   const NUM3 = 3;
   console.log(NUM3);
 
-  // 
+  // !!2月15日の学習
 
   // 分割代入
   let [x1, x2] = [2, 3];
@@ -106,7 +106,60 @@ const practice = () => {
     return x * x;
   }
 
+  // !!2月16日の学習
+
+  // in演算子 オブジェクトや配列に指定したものが存在するかどうかを真偽値で返す
+  let point = {x: 1, y: 2};
+  console.log("x" in point);
+  console.log("toString" in point); //オブジェクトはtoStringメソッドを持つため、trueに
+
+  let data = [6,7,8];
+  console.log("0" in data);
+  console.log(1 in data);
+  console.log(3 in data);
+
+  // 算術演算を伴う代入演算子は値の副作用が伴う場合、同じ処理をしているように見えても異なる結果を返すことがある。
+  i = 0;
+  console.log(data[i++]);
+  console.log(data[i++]);
+  console.log(data[i++]);
+  console.log(data[i++]);
   
+  data = [6,7,8];
+  i = 0;
+  console.log(data[i]);
+  data[i++] *= 2;
+  console.log(data[0]);
+
+  data = [6,7,8];
+  i = 0;
+  console.log(data[i]);
+  data[i++] = data[i++] * 2;
+  console.log(data[0]);
+
+  // ?: 条件演算子 オペランドが３つ必要。if文の省略にも使える。
+  // 第一オペランドを評価し、trueの場合は第二オペランドを、falseの場合は第三オペランドを返す。
+
+  let username;
+  let greeting = "Hello" + (username ? username : "there" );
+  console.log(greeting);
+
+  username = "test";
+  greeting = "Hello" + (username ? username : "there" );
+  console.log(greeting);
+
+  //typeof演算子 データの型を表す文字列を返す。
+  // testは未定義のundefinedなので、文字列"undefined"を返す。
+  let test;
+  console.log(typeof test);
+
+  // delete演算子 オブジェクトのプロパティや配列の要素を削除する
+  let box = {x: 1, y: 2};
+  console.log("x" in box);
+  delete box.x;
+  console.log("x" in box);
+
+
 
 }
 
