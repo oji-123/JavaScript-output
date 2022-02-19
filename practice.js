@@ -159,6 +159,123 @@ const practice = () => {
   delete box.x;
   console.log("x" in box);
 
+  // 2月17日学習分
+
+  // if文 usernameがnull、undefined,NaNの場合に名前をつける文
+  // 単行オペランドに対して!演算子を使うと、null、undefined,NaNの場合trueを返す。
+
+  if (!username) {
+    username = "John";
+    console.log(username);
+  } else {
+    console.log(username);
+  }
+
+  // if文を書く際の注意点
+  // JSのif文はインデントで文を判断せず、ifの入れ子の文を書くと、elseは直近のifに対して動作する。
+  i = j = 1;
+  k = 2;
+  if (i === j)
+    if (j === k)
+      console.log("i equals k");
+  else
+    console.log("i doesn't equal j");
+
+  // 以上のコードを作成者の意図に沿って書くのであれば、{}を用いて次のようにする必要がある。
+  i = j = 1;
+  k = 2;
+  if (i === j){
+    if (j === k)
+      console.log("i equals k");
+  } else {
+    console.log("i doesn't equal j");
+  }
+
+  // switch分
+  // breakを省略をすることも可能で、省略が必要になることも稀にある。
+  // caseは処理の開始点を決めているだけなので、breakがない場合はそれ以下の文も実行されることになる。
+
+  let n = 0;
+  switch(n){
+    case 1:
+      // 処理１
+      break
+    case 2:
+      // 処理２
+      break
+    default:
+      // caseに全て合致しない時の処理
+      break
+  }
+
+  // do/while文
+  // 処理を実行させ、while文でループを回す。While文の処理と判定処理の順序を逆にする。
+  // while文と大きく異なるのは,doが必要で、最後には;(セミコロン)が必要。
+  // また、一番最初の処理は必ず行われる。
+
+  do {
+    console.log(n);
+    n++;
+    // 処理を記述
+  }
+  while ( n < 3 );//条件式
+
+  // 2月18日学習分
+
+  // for/of文
+  data = [1,2,3,4,5,6,7,8,9];
+  let sum = 0;
+
+  for (let element of data){
+    sum += element;
+  }
+  console.log(sum);
+
+  // for/of文はオブジェクトに対してそのまま使うことはできない。(TypeErrorに)
+  // 使う場合は
+  o = {x: 1, y: 2, z: 3};
+  let keys = ""
+  for(let k of Object.keys(o)){
+    keys += k;
+  }
+  console.log(keys);
+  // また、ここで用いているObject.keys()メソッドはオブジェクトのキーを配列として返すことができるので、
+  // for/ofメソッドを用いることが可能
+
+  // Object.entries()メソッドはオブジェクトのキーと値を配列に入れ、プロパティの数だけ配列の中に用意する。
+  console.log(Object.entries(o));
+
+  // for/of文は文字列に対して使うことも可能
+  // 何の文字がどれだけあるかカウント
+  let frequency = {};
+  for(let letter of "mississippi"){
+    if (frequency[letter]) {
+      frequency[letter]++;
+    } else {
+      frequency[letter] = 1;
+    }
+  }
+  console.log(frequency);
+
+  // for/in文
+  // for/of文はオブジェクトにそのまま使用することができないが、for/in文はオブジェクトに対してそのまま使うことができる。
+  o = {x: 1, y: 2, z: 3};
+  for(let i in o){
+    console.log(o[i]);
+  }
+
+  // continueの使い方。下記の場合は、データがない時は処理を飛ばして次のループへ行くようにできる。
+  sum = 0
+  data = [1,2,3,4,,,7,8,9];
+  for(let i = 0; i < data.length; i++) {
+    if(!data[i]) continue;
+    sum += data[i];
+  }
+  console.log(sum);
+
+  
+  
+
 
 
 }
