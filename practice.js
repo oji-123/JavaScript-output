@@ -273,8 +273,25 @@ const practice = () => {
   }
   console.log(sum);
 
+  // 2月19日学習分
   
-  
+  // オブジェクトの性質
+  // 変数xがオブジェクトの参照をしているときに、let y = x;を実行すると、
+  // yにはxが代入されるのではなく、xが参照しているオブジェクトを（yが)参照するという挙動になる。
+  // オブジェクトのコピーが代入されるわけではない。
+  // なので、下記の変数subはmainを代入しているようなコードになっているが、
+  // 厳密にはsubは{x: 1, y: 2}というオブジェクトを参照しており、
+  // 変数subを使って値を操作すると、変数mainの値にも変化が起きる。
+
+  let main = {x: 1, y: 2};
+  let sub = main;
+  console.log(main);
+  console.log(sub);
+  sub.x = 5;
+  console.log(main);
+  console.log(sub);
+
+  // 
 
 
 
