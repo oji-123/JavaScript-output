@@ -291,7 +291,17 @@ const practice = () => {
   console.log(main);
   console.log(sub);
 
-  // 
+  // 2月20日学習分
+
+  // newを使ったオブジェクト生成
+  let ob = new Object(); // 空のオブジェクト
+  console.log(ob);
+  let a = new Array(); // 空の配列
+  console.log(a);
+  let d = new Date(); // 現在時刻のDateオブジェクト
+  console.log(d);
+  let r = new Map(); // マップオブジェクト
+  console.log(r);
 
 
 
