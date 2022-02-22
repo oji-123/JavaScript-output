@@ -344,6 +344,16 @@ const practice = () => {
   // ただし、undefinedのものに対してプロパティを読み出すとエラーが発生する。
   // console.log(i1.x.length); この文はエラーに。
 
+  // 2月22日学習分
+
+  // hasOwnProperty()メソッド
+  // あるオブジェクトが指定したプロパティを持つかどうか判別するためのメソッド
+
+  let h = {x: 1, y: 2};
+  console.log(h.hasOwnProperty("x"));
+  console.log(h.hasOwnProperty("z"));
+  console.log(h.hasOwnProperty("toString"));
+
   
 
 }
