@@ -303,7 +303,48 @@ const practice = () => {
   let r = new Map(); // マップオブジェクト
   console.log(r);
 
+  // 2月21日学習分
 
+  // Object.create()メソッド
+  // オブジェクトの生成が行えるメソッド
+
+  let o1 = Object.create({x: 1, y: 2});
+  console.log(o1);
+  console.log(o1.x + o1.y);
+
+  // オブジェクトの継承
+  // 下記では、o3というオブジェクトはo2のオブジェクトを継承している。
+  // また、オブジェクト自体はそれぞれprototypeというのを継承しており、
+  // o3はo2というオブジェクトと、Object.prototypeから継承をする。
+  
+  let o2 = Object.create({x: 1});
+  let o3 = Object.create(o);
+  o3.y = 2
+  o3.prototype = 10;
+  console.log(o3.x);
+  console.log(o3.y);
+  console.log(o3.prototype);
+
+  // 継承はされていても、継承先(ここではc)から継承元(ここではunit)にアクセスし、
+  // 変更しても、継承元の値を変更することはできない。
+
+  let unit = {r: 1}
+  let c = Object.create(unit);
+  c.x = 1, c.y = 2;
+  console.log(c.r);
+  c.r = 5;
+  console.log(c.r);
+  console.log(unit.r);
+  
+  // プロパティのアクセスエラー
+  // 基本的に未定義のプロパティに対して参照を行なってもエラーは吐かない。
+
+  let i1 = {};
+  console.log(i1.x); // undefined
+  // ただし、undefinedのものに対してプロパティを読み出すとエラーが発生する。
+  // console.log(i1.x.length); この文はエラーに。
+
+  
 
 }
 
