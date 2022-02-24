@@ -354,6 +354,53 @@ const practice = () => {
   console.log(h.hasOwnProperty("z"));
   console.log(h.hasOwnProperty("toString"));
 
+  // 2月24日学習分
+
+  // Object.assign()メソッド
+  // オブジェクトの上書き、追加が行うことのできるメソッド
+
+  o1 = {x: 1};
+  o2 = {x: 2, y: 3};
+  Object.assign(o1, o2);
+  console.log(o1);
+  // 上記のように行うと、元のデータは上書きされる。
+  // 同一のキーがあり、上書きしたくないときは、
+
+  o1 = {x: 1};
+  o2 = {x: 2, y: 3};
+  o1 = Object.assign({}, o2, o1);
+  console.log(o1);
+
+  // スプレッド演算子（構文）
+  // オブジェクトの中でのみ使える演算子で、オブジェクトを他のオブジェクトの中にコピーすることができる。
+
+  o1 = {x: 1};
+  o2 = {y: 1, z: 2};
+  o3 = {...o1, ...o2, a: 10};
+  console.log(o3);
+
+  // ゲッター関数とセッター関数
+  // ゲッター関数は、引数を持たず、通常のプロパティのようにアクセスができる
+  // また、「＝」を使って記述すると、セッター関数が呼び出され、代入される（引数が必要
+  // さらに、ここで注目するのは、オブジェクトのプロパティとしてgetとsetが定義されていること
+
+  let user = {
+    firstName: "John",
+    lastName: "Doe",
+  
+    get fullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName(value) {
+      [this.firstName, this.lastName] = value.split(" ");
+    },
+  };
+
+  user.fullName = "Kit Harington";
+  console.log(user.fullName);
+
+
+
   
 
 }
