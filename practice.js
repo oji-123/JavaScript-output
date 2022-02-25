@@ -373,6 +373,7 @@ const practice = () => {
 
   // スプレッド演算子（構文）
   // オブジェクトの中でのみ使える演算子で、オブジェクトを他のオブジェクトの中にコピーすることができる。
+  // スプレッド演算子は反復可能なオブジェクトに対してのみ扱うことができる。
 
   o1 = {x: 1};
   o2 = {y: 1, z: 2};
@@ -399,7 +400,65 @@ const practice = () => {
   user.fullName = "Kit Harington";
   console.log(user.fullName);
 
+  // 2月25日学習分
 
+  // 配列の定義について
+  // 配列の中身は空にすることができる
+
+  k = [1, ,3];
+  console.log(k);
+  console.log(k[1]);
+
+  // また、下記の場合
+  k = [ , , ];
+  console.log(k.length); // => 2
+  // 最後のカンマは無視されるので、lengthメソッドを使うと、長さは２になる
+
+  // Arrayコンストラクタ
+  a = new Array(); // 空の配列の生成
+  console.log(a);
+
+  a = new Array(10); // 配列の要素が10ある空の配列
+  console.log(a);
+
+  a = new Array(1, 2, 3); // 複数記述すると、それらが要素として存在する配列に。
+  console.log(a);
+
+  // Array.of()関数
+  // Arrayコンストラクタと似ているが、異なる挙動をするのは、一つだけ引数を与えたとき
+
+  a = Array.of(10); // これは、10という要素を持った配列になる。
+  console.log(a);
+
+  // Array.form()関数
+  // スプレッド演算子と似た挙動を行う
+
+  a = new Array(1, 2, 3);
+  console.log(a);
+
+  b = Array.from(a);
+  console.log(b.length);
+
+  // インデックス番号以外での配列の要素の定義
+  // 配列はオブジェクトのようなものでもあるため、インデックス番号以外で要素を定義すると、
+  // プロパティを定義したように動作する。また、lengthメソッドには影響しない
+
+  a[1.23] = true
+  console.log(a);
+  console.log(a.length);
+
+  // lengthメソッドは長さを配列の長さを返すメソッドだが、
+  // これを使って要素の削除なども行うことができる
+
+  a = new Array(1, 2, 3);
+  a.length = 2;
+  console.log(a);
+  // 要素数を増やすこともできるが、疎な配列となる
+
+  a.length = 5;
+  console.log(a); // インデックス番号3~5は空の配列に
+
+  
 
   
 
