@@ -458,8 +458,23 @@ const practice = () => {
   a.length = 5;
   console.log(a); // インデックス番号3~5は空の配列に
 
-  
+  // 2月28日学習分
 
+  // push()メソッドでの要素の追加
+  // 末尾に要素を加える
+  a = [];
+  a.push("zero");
+  console.log(a);
+  a.push("one", "tow");
+  console.log(a);
+
+  // deleteメソッド
+  a = [1,2,3];
+  delete a[2]; // インデックス番号が２のものを削除
+  console.log(a);
+  console.log(a.length); // 配列の長さは３のまま
+
+  // 
   
 
 }
