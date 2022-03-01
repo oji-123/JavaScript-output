@@ -474,9 +474,67 @@ const practice = () => {
   console.log(a);
   console.log(a.length); // 配列の長さは３のまま
 
-  // 
-  
+  // forEachメソッド
+  // 引数は３つ指定することができる
+  // 第一引数に関数、第二引数がインデックス、第三引数は配列自身
+  // forEach関数では、通常のループ文のようにbreakに該当するものはなく、
+  // 全ての配列要素を渡すまで終了できない
 
+  data = [1,2,3,4,5];
+  sum = 0
+  data.forEach(value => {sum += value; });
+  console.log(sum);
+
+  data.forEach(function(v, i, a) {a[i] = v + 1});
+  console.log(data);
+
+  // 3月1日学習分
+
+  // mapメソッド
+  // 配列の一つ一つの要素に対して処理を行い、新しい配列を返す
+  // 元の配列を操作はしない
+
+  a = [1, 2, 3];
+  b = a.map(x => x*x);
+  console.log(b);
+  console.log(a);
+
+  // filterメソッド
+  // 引数は２つ与えることができる
+  // 第一引数は配列のそれぞれの中身の値、第二引数はインデックス番号を与える
+
+  a = [1, 2, 3, 4, 5];
+  console.log(a.filter(x => x < 3));
+  console.log(a.filter((x,i) => i % 2 === 0 ));
+
+  // find()メソッドとfindIndex()メソッド
+  // これらのメソッドはfilterメソッドと似た挙動を示す
+  // ただし、一つ該当する要素のみを返す
+
+  a = [1, 2, 3, 4, 5];
+  console.log(a.find(x => x === 2)); // => 2 要素の値が2と等しくなる要素の値を返す
+  console.log(a.findIndex(x => x >= 3)); // => 2 要素の値が３以上になるのはインデックス番号を返す
+  
+  // every()メソッド
+  // 配列に対して全ての真偽値がtrueであれば、trueを返す。それ以外はfalse
+
+  console.log(a.every(x => x < 10)); // => true
+  console.log(a.every(x => x < 3)); // => false
+
+  // some()メソッド
+  // 配列に対して一つでも条件にtrueを返す要素が有る場合はtrueを返す
+
+  console.log(a.some(x => x === 5)); // => true
+  console.log(a.some(x => x === 10)); // => false
+
+  // flat()メソッド
+  // 配列の展開を行う
+
+  console.log([1, [2, 3]].flat()); // => [1, 2, 3]
+  console.log([1, [2, [3, 4]]].flat()); // => [1, 2,[3, 4]]
+  console.log([1, [2, [3, 4]]].flat(2)); // => [1, 2, 3, 4] 引数は何回展開を行うかを指定できる
+
+  
 }
 
 window.addEventListener("load", practice);
