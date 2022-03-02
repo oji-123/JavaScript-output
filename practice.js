@@ -534,7 +534,52 @@ const practice = () => {
   console.log([1, [2, [3, 4]]].flat()); // => [1, 2,[3, 4]]
   console.log([1, [2, [3, 4]]].flat(2)); // => [1, 2, 3, 4] 引数は何回展開を行うかを指定できる
 
-  
+  // 3月2日学習分
+
+  // sliceメソッド
+  // 配列の指定した範囲を切り取る
+
+  a = [1,2,3,4,5];
+  console.log(a.slice(3)); // => [4,5];
+  console.log(a.slice(1,-2)); // => [2,3];
+
+  // spliceメソッド()
+  // 配列を切り取り、元の配列も編集を行うメソッド
+
+  a = [1,2,3,4,5];
+  console.log(a.splice(3)); // => [4,5]が返り値に。
+  console.log(a); // => [1,2,3]元の配列aは切り取られる
+
+  a = [1,2,3,4,5];
+  a.splice(2,0,"a","b");
+  console.log(a);
+
+  // また、第二引数を指定することで切り取る数を指定することができ、
+  // それ以降の要素を配列に加える
+  a = [1,2,3,4,5];
+  console.log(a.splice(2,2,"a","b"));
+  console.log(a);
+
+  // fill()メソッド
+  // 指定した範囲の配列要素を変更することができる
+
+  console.log(a = new Array(5));
+  console.log(a.fill(0)); // => [0,0,0,0,0]
+  console.log(a.fill(8,2,-1)); // => [0,0,8,8,0]
+
+  //copyWithinメソッド()
+  // 元の配列が変更される
+  // 配列の中身を指定した要素にコピーすることができる
+
+  a = [1,2,3,4,5];
+  console.log(a.copyWithin(2));
+  console.log(a);
+
+  a = [1,2,3,4,5];
+  console.log(a.copyWithin(0,-2));
+
+  
+
 }
 
 window.addEventListener("load", practice);
