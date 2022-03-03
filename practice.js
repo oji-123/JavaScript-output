@@ -578,6 +578,42 @@ const practice = () => {
   a = [1,2,3,4,5];
   console.log(a.copyWithin(0,-2));
 
+  // 3月3日学習分
+
+  // indexOf()メソッドとlastIndexOf()メソッド
+  // 配列の中の要素を検索することができる
+  // indexOf()メソッドは配列の先頭から検索し、lastIndexOf()メソッドは逆になる
+
+  a = [0,1,2,1,0];
+  console.log(a.indexOf(1));
+  console.log(a.lastIndexOf(1));
+  console.log(a.indexOf(3)); // => -1 見つからない時は-1を返り値とする
+
+  // includes()メソッド
+  // 配列の中に指定した要素が含まれているかどうかを真偽値によって返す
+
+  a = [1,true,"10"];
+  console.log(a.includes(true));
+  console.log(a.includes(10));
+
+  // sort()メソッド
+  // 引数を指定しない場合はアルファベット順にソートする
+
+  a = ["banana", "cherry", "apple"];
+  console.log(a.sort());
+
+  a = [1111,222,33,4];
+  a.sort(function(a,b){
+    return a - b ; // 数値順に並び替え 
+  })
+  console.log(a);
+
+  // reverse()メソッド
+  // 配列の順序を反転させるメソッド
+
+  a = [1111,222,33,4];
+  console.log(a.reverse());
+  
   
 
 }
