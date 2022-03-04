@@ -614,6 +614,47 @@ const practice = () => {
   a = [1111,222,33,4];
   console.log(a.reverse());
   
+  // 3月4日学習分
+
+  // join()メソッド
+  // 配列から文字列に変更させる
+
+  a = [1,2,3];
+  console.log(a.join()); // => "1,2,3"
+  console.log(a.join("")) // => "123"
+  
+  // toString()メソッドも同様に扱うことができる
+  console.log(a.toString()); // ただし、文字列を結合させることはできない
+
+  // isArray()メソッド
+  // 与えられたものが配列かどうかを真偽値で返す
+
+  console.log(Array.isArray(a)); // aは配列なので、true
+  b = {};
+  console.log(Array.isArray(b)); // bはオブジェクトなので、false
+
+  // アロー関数
+
+  sum = (x, y) => { x * y;};
+  sum = (x, y) => x * y; // 省略も可能
+
+  console.log(sum(2,3));
+
+  // アロー関数でオブジェクトを返り値とするときの注意点
+  let f1 = (x) => ({value: x});
+  console.log(f1(5)); // オブジェクトを返す
+
+  let f2 = (x) => {value: x};
+  console.log(f2(5)); // undefinedに {}がオブジェクトを定義する際のものと判定されない
+
+  // 入れ子型の関数定義のスコープ
+  function hypotenuse(a, b) {
+    function square(x){return x * x; }
+    return Math.sqrt(square(a) + square(b))
+  }
+  console.log(hypotenuse(2, 3));
+  // 上記のコードで注意するのは、入れ子構造になっており、子要素のfunction文で親要素で与えられた変数を用いている点
+
   
 
 }
